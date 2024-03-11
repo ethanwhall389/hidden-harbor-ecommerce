@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('dist/assets/fonts/Cinzel-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('dist/assets/fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+h1, h2 {
+    font-family: 'Cinzel', 'sans-serif';
+}
+
+p, a {
+    font-family: 'Montserrat', 'sans-serif';
+}
