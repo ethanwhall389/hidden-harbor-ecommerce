@@ -1,10 +1,13 @@
 import NavigationLink from './NavigationLink';
+import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mb-4">
       <div>
-        <h2>Hidden Harbor</h2>
+        <Link to={'/'}>
+          <h2>Hidden Harbor</h2>
+        </Link>
       </div>
       <nav>
         <ul className="flex gap-4">
