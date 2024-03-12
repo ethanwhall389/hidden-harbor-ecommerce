@@ -7,12 +7,13 @@ export default function Shop() {
   return (
     <>
       <h1>This is SHOP</h1>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 justify-items-center">
         {data.map((product) => (
           <ProductCard
             key={product.id}
             image={product.image}
             title={product.title}
+            price={product.price}
           />
         ))}
       </div>

@@ -20,7 +20,12 @@ describe('Product Card', () => {
   });
   it('renders product name', () => {
     render(<ProductCard title={dummyData.title} />);
-    const title = dummyData.title;
-    expect(screen.queryByRole('heading').textContent).toMatch(title);
+    const paragraph = screen.getByText(dummyData.title);
+    expect(paragraph).toBeInTheDocument;
   });
+  it('renders product price', () => {
+    render(<ProductCard price={dummyData.price}/>);
+    const price = screen.getByText(dummyData.price);
+    expect(price).toBeInTheDocument;
+  })
 });
