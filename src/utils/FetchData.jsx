@@ -1,7 +1,9 @@
-function fetchData(setData, setLoading, setError) {
+function fetchData(url, setData, setLoading, setError) {
   async function getData() {
     try {
-      const result = await fetch('https://fakestoreapi.com/products', {
+      setLoading(true);
+      console.log(`https://fakestoreapi.com/products${url}`);
+      const result = await fetch(`https://fakestoreapi.com/products${url}`, {
         mode: 'cors',
       });
 

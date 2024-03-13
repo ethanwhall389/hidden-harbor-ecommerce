@@ -2,15 +2,18 @@ import ProductCard from '../elements/ProductCard';
 import { fetchData, dummyData } from '../../utils/FetchData';
 import { useState, useEffect } from 'react';
 import { CircularProgress } from '@mui/material';
+import CategorySelect from '../elements/CategorySelect';
 
 export default function Shop() {
   const [shopData, setData] = useState(null);
+  const [category, setCategory] = useState('all');
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchData(setData, setLoading, setError);
-  }, []);
+    const url = category !== 'all' ? `/category/${category}` : '';
+    fetchData(url, setData, setLoading, setError);
+  }, [category]);
 
   return (
     <div className="pb-10">
@@ -24,8 +27,12 @@ export default function Shop() {
         </div>
       )}
 
+      <div className='m-4 flex justify-end'>
+        <CategorySelect setError={setError} setCategory={setCategory}/>
+      </div>
+
       <div
-        className={`flex flex-grow gap-4 justify-center ${
+        className={`flex flex-grow gap-4 justify-center mb-6 ${
           isLoading ? '' : 'hidden'
         }`}
       >
@@ -33,7 +40,7 @@ export default function Shop() {
       </div>
 
       <div className="grid grid-cols-3 gap-10 justify-items-center">
-        {shopData &&
+        {shopData && !error &&
           shopData.map((product) => (
             <ProductCard
               key={product.id}
