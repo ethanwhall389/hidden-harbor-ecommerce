@@ -14,6 +14,8 @@ export default function Shop() {
             image={product.image}
             title={product.title}
             price={product.price}
+            rating={product.rating.rate}
+            reviewNum={product.rating.count}
           />
         ))}
       </div>
