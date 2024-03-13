@@ -6,7 +6,7 @@ export default function NavBar() {
     <div className="flex justify-between mb-4">
       <div>
         <Link to={'/'}>
-          <h2>Hidden Harbor</h2>
+          <h2 className="text-lg">Hidden Harbor</h2>
         </Link>
       </div>
       <nav>
