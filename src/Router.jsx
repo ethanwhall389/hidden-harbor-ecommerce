@@ -15,9 +15,14 @@ export default function Router() {
       children: [
         { index: true, element: <Home /> },
         { path: 'about', element: <About /> },
-        { path: 'shop', element: <Shop /> },
+        { path: 'shop', element: <Shop />, 
+          // children: [
+          //   {path: ':productId', element: <Product />}
+          // ] 
+        },
         { path: 'product', element: <Product /> },
         { path: 'cart', element: <Cart /> },
+        { path: 'shop/:productId', element: <Product/>}
       ],
     },
   ]);

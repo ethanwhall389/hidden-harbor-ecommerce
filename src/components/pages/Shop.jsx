@@ -16,6 +16,7 @@ export default function Shop() {
   }, [category]);
 
   return (
+    <>
     <div className="pb-10">
       <h1 className="text-4xl text-center mt-10 mb-14">
         Shop our finest products
@@ -38,12 +39,13 @@ export default function Shop() {
       >
         <CircularProgress />
       </div>
-
+      
       <div className="grid grid-cols-3 gap-10 justify-items-center">
         {shopData && !error &&
           shopData.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               image={product.image}
               title={product.title}
               price={product.price}
@@ -53,5 +55,6 @@ export default function Shop() {
           ))}
       </div>
     </div>
+    </>
   );
 }
