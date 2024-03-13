@@ -1,5 +1,5 @@
 import ProductCard from '../elements/ProductCard';
-import { fetchData, dummyData } from '../../utils/FetchData';
+import { fetchData } from '../../utils/FetchData';
 import { useState, useEffect } from 'react';
 import { CircularProgress } from '@mui/material';
 import CategorySelect from '../elements/CategorySelect';
@@ -32,13 +32,10 @@ export default function Shop() {
         <CategorySelect setError={setError} setCategory={setCategory}/>
       </div>
 
-      <div
-        className={`flex flex-grow gap-4 justify-center mb-6 ${
-          isLoading ? '' : 'hidden'
-        }`}
-      >
+      {isLoading && 
+      <div className={'flex flex-grow gap-4 justify-center mb-6'}>
         <CircularProgress />
-      </div>
+      </div>}
       
       <div className="grid grid-cols-3 gap-10 justify-items-center">
         {shopData && !error &&
