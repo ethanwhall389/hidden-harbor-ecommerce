@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function NavBar() {
   return (
-    <div className="flex justify-between mb-4">
+    <div className="flex justify-between mb-4 border-b-2 pb-2">
       <div>
         <Link to={'/'}>
           <h2 className="text-lg">Hidden Harbor</h2>

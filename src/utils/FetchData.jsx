@@ -1,6 +1,29 @@
-function FetchData() {}
+function fetchData(setData, setLoading, setError) {
+  async function getData() {
+    try {
+      const result = await fetch('https://fakestoreapi.com/products', {
+        mode: 'cors',
+      });
 
-function DummyData() {
+      if (!result.ok) {
+        throw new Error(
+          `This is an HTTP error: The status is ${result.status}`
+        );
+      }
+
+      const data = await result.json();
+      setError(null);
+      setData(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+  return getData();
+}
+
+function dummyData() {
   return [
     {
       id: 1,
@@ -36,4 +59,4 @@ function DummyData() {
   ];
 }
 
-export { FetchData, DummyData };
+export { fetchData, dummyData };

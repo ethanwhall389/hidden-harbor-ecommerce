@@ -9,7 +9,7 @@ export default function ProductCard({
   reviewNum,
 }) {
   return (
-    <div className="w-72 h-96 border-2 border-slate-300 p-6 flex flex-col justify-center items-center gap-4 hover:shadow-lg transition-all duration-75 hover:cursor-pointer">
+    <div className="w-72 h-96 border-2 border-slate-300 p-6 flex flex-col justify-center items-center gap-4 hover:shadow-md transition-all duration-75 hover:cursor-pointer rounded-xl bg-white">
       <div
         style={{ backgroundImage: `url(${image})` }}
         className="bg-contain bg-no-repeat bg-center w-full h-60"
