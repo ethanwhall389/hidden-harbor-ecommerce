@@ -5,6 +5,7 @@ import { fetchData } from '../../utils/FetchData';
 import { CircularProgress } from '@mui/material';
 import { Rating } from '@mui/material';
 import AddToCartBttn from '../elements/AddToCartBttn';
+import Quantity from '../elements/Quantity';
 
 export default function Product({ cart, setCart }) {
 
@@ -50,13 +51,16 @@ export default function Product({ cart, setCart }) {
             <h2 className="font-mont text-3xl">${productData.price}</h2>
             <hr></hr>
             <p className="font-mont">{productData.description}</p>
-            <AddToCartBttn
-              text={'Add To Cart'}
-              cart={cart}
-              setCart={setCart}
-              data={productData}
-              setMessage={setMessage}
-            />
+            <div className='flex gap-4'>
+              <AddToCartBttn
+                text={'Add To Cart'}
+                cart={cart}
+                setCart={setCart}
+                data={productData}
+                setMessage={setMessage}
+              />
+              <Quantity cart={cart} setCart={setCart} product={productData}/>
+            </div>
             <p className={submitedMessage ? '' : 'invisible'}>{submitedMessage}</p>
           </div>
         </div>
