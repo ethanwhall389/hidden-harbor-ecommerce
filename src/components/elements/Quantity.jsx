@@ -4,6 +4,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function Quantity ({cart, setCart, product}) {
 
+    const quantity = cart === null ? 0 : cart[findProduct()].quantity;
+    
     function findProduct() {
         const id = product.id;
         const index = cart.findIndex((product) => product.id === id);
@@ -11,31 +13,33 @@ export default function Quantity ({cart, setCart, product}) {
     }
 
     function handleDecrement() {
-        const index = findProduct();
-        if (index !== -1) {
-            setCart((prevCart) => [...prevCart, [index].quantity-- ])
+        if (cart[findProduct()].quantity > 1) {
+            const newCart = cart.map((item) => {
+                if (item.id === product.id) {
+                    return {
+                        ...item,
+                        quantity: quantity-1,
+                    }
+                } else {
+                    return item;
+                }
+            })
+            setCart(newCart)
         }
     }
 
     function handleIncrement() {
-        const index = findProduct();
-        console.log('starting quantity: ' + cart[index].quantity)
-        if (index !== -1) {
-            setCart((prevCart) => {
-                const newCart = prevCart.map((product, productIndex) => {
-                    if (productIndex === index) {
-                        return {
-                            ...product,
-                            quantity: cart[index].quantity+1
-                        }
-                    } else {
-                        return product
-                    }
-                })
-                return newCart;
-            })
-        }
-        console.log('ending quantity: ' + cart[index].quantity)
+        const newCart = cart.map((item) => {
+            if (item.id === product.id) {
+                return {
+                    ...item,
+                    quantity: quantity+1,
+                }
+            } else {
+                return item;
+            }
+        })
+        setCart(newCart);
     }
 
     return (
@@ -45,7 +49,7 @@ export default function Quantity ({cart, setCart, product}) {
             >
                 <RemoveIcon fontSize='small'/>
             </div>
-            <input type="number" value={product.quantity} readOnly className="text-center focus:outline-none rounded-full remove-arrow w-full text-lg" />
+            <input type="number" value={quantity} readOnly className="text-center focus:outline-none rounded-full remove-arrow w-full text-lg" />
             <div className="bg-slate-400 rounded-full w-8 h-8 text-2xl flex justify-center items-center p-2 hover:cursor-pointer"
                 onClick={handleIncrement}
             >

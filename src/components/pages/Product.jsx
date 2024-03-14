@@ -59,7 +59,10 @@ export default function Product({ cart, setCart }) {
                 data={productData}
                 setMessage={setMessage}
               />
-              <Quantity cart={cart} setCart={setCart} product={productData}/>
+              {cart !== null 
+              ? <Quantity cart={cart} setCart={setCart} product={productData}/>
+              : ''
+              }
             </div>
             <p className={submitedMessage ? '' : 'invisible'}>{submitedMessage}</p>
           </div>
