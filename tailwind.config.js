@@ -6,7 +6,11 @@ export default {
       cinzel: ['Cinzel', 'sans-serif'],
       mont: ['Montserrat', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      spacing: {
+        150: '50rem',
+      },
+    },
   },
   plugins: [],
 };

@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import NavigationLink from './NavigationLink';
 import { Link } from 'react-router-dom';
 
-export default function NavBar() {
+export default function NavBar({ cart }) {
   return (
     <div className="flex justify-between mb-4 border-b-2 pb-2">
       <div>
@@ -22,9 +23,14 @@ export default function NavBar() {
           </li>
           <li>
             <NavigationLink text={'Cart'} link={'cart'} />
+            <p>{cart.length} items</p>
           </li>
         </ul>
       </nav>
     </div>
   );
 }
+
+NavBar.propTypes = {
+  cart: PropTypes.array,
+};
