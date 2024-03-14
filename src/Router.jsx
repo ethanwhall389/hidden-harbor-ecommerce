@@ -9,7 +9,7 @@ import Product from './components/pages/Product';
 import Shop from './components/pages/Shop';
 
 export default function Router() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(null);
 
   const router = createBrowserRouter([
     {

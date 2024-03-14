@@ -23,7 +23,7 @@ export default function NavBar({ cart }) {
           </li>
           <li>
             <NavigationLink text={'Cart'} link={'cart'} />
-            <p>{cart.length} items</p>
+            {cart && <p>{cart.length} items</p>}
           </li>
         </ul>
       </nav>
