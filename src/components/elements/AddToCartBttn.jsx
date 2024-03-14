@@ -2,21 +2,38 @@ import PropTypes from 'prop-types';
 
 export default function AddToCartBttn({
   text,
+  cart,
   setCart,
   data,
+  setMessage,
   style = 'styleMain',
 }) {
+
+  function removeMessageTimer() {
+    setTimeout(() => {
+      setMessage(null);
+    }, 2000);
+  }
+  
   function handleClick() {
-    const newEntry = {
-      title: data.title,
-      image: data.image,
-      price: data.price,
-      quantity: 1,
-      id: data.id,
-    };
-    setCart((prevCart) =>
-      prevCart === null ? [newEntry] : [...prevCart, newEntry]
-    );
+
+    if (cart === null || (cart.find(product => product.id) === undefined)) {
+      const newEntry = {
+        title: data.title,
+        image: data.image,
+        price: data.price,
+        quantity: 1,
+        id: data.id,
+      };
+      setCart((prevCart) => (
+        prevCart === null ? [newEntry] : [...prevCart, newEntry]
+      ))
+      setMessage('Item added to cart.');
+      removeMessageTimer();
+    } else {
+      setMessage('This item is already in your cart.')
+      removeMessageTimer();
+    } 
   }
 
   return (
@@ -37,7 +54,9 @@ export default function AddToCartBttn({
 
 AddToCartBttn.propTypes = {
   text: PropTypes.string,
+  cart: PropTypes.array,
   setCart: PropTypes.func,
   data: PropTypes.object,
+  setMessage: PropTypes.func,
   style: PropTypes.string,
 };

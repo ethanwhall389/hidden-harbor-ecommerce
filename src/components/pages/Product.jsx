@@ -6,11 +6,13 @@ import { CircularProgress } from '@mui/material';
 import { Rating } from '@mui/material';
 import AddToCartBttn from '../elements/AddToCartBttn';
 
-export default function Product({ setCart }) {
+export default function Product({ cart, setCart }) {
+
   const { productId } = useParams();
   const [productData, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [submitedMessage, setMessage] = useState(null);
 
   useEffect(() => {
     const url = `/${productId}`;
@@ -50,9 +52,12 @@ export default function Product({ setCart }) {
             <p className="font-mont">{productData.description}</p>
             <AddToCartBttn
               text={'Add To Cart'}
+              cart={cart}
               setCart={setCart}
               data={productData}
+              setMessage={setMessage}
             />
+            <p className={submitedMessage ? '' : 'invisible'}>{submitedMessage}</p>
           </div>
         </div>
       )}
@@ -61,5 +66,6 @@ export default function Product({ setCart }) {
 }
 
 Product.propTypes = {
+  cart: PropTypes.array,
   setCart: PropTypes.func,
 };

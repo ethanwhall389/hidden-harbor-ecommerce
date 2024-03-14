@@ -21,7 +21,7 @@ export default function Router() {
         { path: 'shop', element: <Shop /> },
         { path: 'product', element: <Product /> },
         { path: 'cart', element: <Cart cart={cart} setCart={setCart} /> },
-        { path: 'shop/:productId', element: <Product setCart={setCart} /> },
+        { path: 'shop/:productId', element: <Product cart={cart} setCart={setCart} /> },
       ],
     },
   ]);
