@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import NavigationLink from './NavigationLink';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { ShoppingBagOutlined } from '@mui/icons-material';
 export default function NavBar({ cart }) {
   return (
     <div className="flex justify-between mb-4 border-b-2 pb-2">
@@ -11,7 +12,7 @@ export default function NavBar({ cart }) {
         </Link>
       </div>
       <nav>
-        <ul className="flex gap-4">
+        <ul className="flex gap-4 items-center">
           <li className="">
             <NavigationLink text={'Home'} link={'/'} />
           </li>
@@ -21,9 +22,13 @@ export default function NavBar({ cart }) {
           <li>
             <NavigationLink text={'About'} link={'about'} />
           </li>
-          <li>
-            <NavigationLink text={'Cart'} link={'cart'} />
-            {cart && <p>{cart.length} items</p>}
+          <li className="relative">
+            {cart && (
+              <div className="bg-blue-400 w-3 h-3 rounded-full absolute top-1"></div>
+            )}
+            <NavLink to={'cart'}>
+              <ShoppingBagOutlined fontSize="large"></ShoppingBagOutlined>
+            </NavLink>
           </li>
         </ul>
       </nav>

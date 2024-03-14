@@ -14,7 +14,9 @@ export default function AddToCartBttn({
       quantity: 1,
       id: data.id,
     };
-    setCart((prevCart) => [...prevCart, newEntry]);
+    setCart((prevCart) =>
+      prevCart === null ? [newEntry] : [...prevCart, newEntry]
+    );
   }
 
   return (
