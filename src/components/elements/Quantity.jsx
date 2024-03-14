@@ -4,7 +4,10 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 export default function Quantity ({cart, setCart, product}) {
 
-    const quantity = cart === null ? 0 : cart[findProduct()].quantity;
+    let quantity = 0;
+    if ()
+
+    const quantity = cart === null || findProduct() === undefined ? 0 : cart[findProduct()].quantity;
     
     function findProduct() {
         const id = product.id;
@@ -43,7 +46,7 @@ export default function Quantity ({cart, setCart, product}) {
     }
 
     return (
-        <div className="border-2 border-slate-400 rounded-full flex gap-2 items-center mt-2 px-2 w-44">
+        <div className="border-2 border-slate-400 rounded-full flex gap-2 items-center mt-2 px-2 w-44 min-h-11">
             <div className="bg-slate-400 rounded-full w-8 h-8 text-2xl flex justify-center items-center p-2 hover:cursor-pointer"
                 onClick={handleDecrement}
             >

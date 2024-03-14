@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import CartItem from '../elements/CartItem';
 import Button from '../elements/Button.jsx';
 
+
 export default function Cart({ cart, setCart }) {
   console.log(cart);
 
@@ -25,7 +26,7 @@ export default function Cart({ cart, setCart }) {
       {cart && (
         <div className="pt-6 pb-6">
           {cart.map((product, index) => (
-            <CartItem key={index} data={product} />
+            <CartItem key={index} data={product} cart={cart} setCart={setCart} />
           ))}
           <div className="flex justify-between">
             <p className="text-xl">
