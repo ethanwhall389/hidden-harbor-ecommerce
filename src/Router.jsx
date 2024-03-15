@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import App from './App';
 import Home from './components/pages/Home';
@@ -10,6 +10,10 @@ import Shop from './components/pages/Shop';
 
 export default function Router() {
   const [cart, setCart] = useState(null);
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
 
   const router = createBrowserRouter([
     {
