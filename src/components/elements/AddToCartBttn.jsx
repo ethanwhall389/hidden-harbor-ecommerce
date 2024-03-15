@@ -8,16 +8,17 @@ export default function AddToCartBttn({
   setMessage,
   style = 'styleMain',
 }) {
-
   function removeMessageTimer() {
     setTimeout(() => {
       setMessage(null);
     }, 2000);
   }
-  
-  function handleClick() {
 
-    if (cart === null || (cart.find(product => product.id) === undefined)) {
+  function handleClick() {
+    if (
+      cart === null ||
+      cart.find((product) => product.id === data.id) === undefined
+    ) {
       const newEntry = {
         title: data.title,
         image: data.image,
@@ -25,15 +26,15 @@ export default function AddToCartBttn({
         quantity: 1,
         id: data.id,
       };
-      setCart((prevCart) => (
+      setCart((prevCart) =>
         prevCart === null ? [newEntry] : [...prevCart, newEntry]
-      ))
+      );
       setMessage('Item added to cart.');
       removeMessageTimer();
     } else {
-      setMessage('This item is already in your cart.')
+      setMessage('This item is already in your cart.');
       removeMessageTimer();
-    } 
+    }
   }
 
   return (

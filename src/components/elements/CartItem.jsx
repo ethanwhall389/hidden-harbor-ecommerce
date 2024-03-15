@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Quantity from '../elements/Quantity.jsx';
+import RemoveItemBttn from './RemoveItemBttn.jsx';
 
 export default function CartItem({ data, cart, setCart }) {
   return (
@@ -12,8 +13,8 @@ export default function CartItem({ data, cart, setCart }) {
         <div className="flex flex-col gap-1">
           <h1 className="font-mont text-xl">{data.title}</h1>
           <h2 className="font-mont text-2xl">${data.price}</h2>
-          <Quantity cart={cart} setCart={setCart} product={data}/>
-          <h2 className="font-mont text-lg">Quantity: {data.quantity}</h2>
+          <Quantity cart={cart} setCart={setCart} product={data} />
+          <RemoveItemBttn cart={cart} setCart={setCart} productData={data} />
         </div>
       </div>
     </div>

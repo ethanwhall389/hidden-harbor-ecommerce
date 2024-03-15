@@ -1,18 +1,32 @@
 import PropTypes from 'prop-types';
 import CartItem from '../elements/CartItem';
 import Button from '../elements/Button.jsx';
-
+import { useState, useEffect } from 'react';
 
 export default function Cart({ cart, setCart }) {
-  console.log(cart);
+  const [subtotal, setSubtotal] = useState(0);
 
-  function getSubtotal() {
-    let total = 0;
-    cart.forEach((item) => {
-      total += item.price;
-    });
-    return total.toLocaleString();
-  }
+  useEffect(() => {
+    let newTotal = 0;
+    if (cart !== null) {
+      cart.forEach((item) => {
+        newTotal += item.price * item.quantity;
+      });
+      setSubtotal(newTotal.toLocaleString());
+    }
+  }, [cart]);
+
+  // function getSubtotal() {
+  //   let total = 0;
+  //   if (cart === null) {
+  //     total = 0;
+  //   } else {
+  //     cart.forEach((item) => {
+  //       total += item.price * item.quantity;
+  //     });
+  //   }
+  //   return total.toLocaleString();
+  // }
 
   return (
     <>
@@ -26,13 +40,18 @@ export default function Cart({ cart, setCart }) {
       {cart && (
         <div className="pt-6 pb-6">
           {cart.map((product, index) => (
-            <CartItem key={index} data={product} cart={cart} setCart={setCart} />
+            <CartItem
+              key={index}
+              data={product}
+              cart={cart}
+              setCart={setCart}
+            />
           ))}
           <div className="flex justify-between">
             <p className="text-xl">
               {cart.length} {cart.length > 1 ? 'items' : 'item'}
             </p>
-            <h2 className="font-mont text-2xl">Subtotal: ${getSubtotal()}</h2>
+            <h2 className="font-mont text-2xl">Subtotal: ${subtotal}</h2>
           </div>
         </div>
       )}

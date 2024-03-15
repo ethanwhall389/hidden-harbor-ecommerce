@@ -8,12 +8,23 @@ import AddToCartBttn from '../elements/AddToCartBttn';
 import Quantity from '../elements/Quantity';
 
 export default function Product({ cart, setCart }) {
-
   const { productId } = useParams();
   const [productData, setData] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [submitedMessage, setMessage] = useState(null);
+
+  function productIsInCart() {
+    if (cart === null) {
+      return false;
+    } else if (
+      cart.find((product) => product.id === productData.id) === undefined
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   useEffect(() => {
     const url = `/${productId}`;
@@ -51,7 +62,7 @@ export default function Product({ cart, setCart }) {
             <h2 className="font-mont text-3xl">${productData.price}</h2>
             <hr></hr>
             <p className="font-mont">{productData.description}</p>
-            <div className='flex gap-4'>
+            <div className="flex gap-4">
               <AddToCartBttn
                 text={'Add To Cart'}
                 cart={cart}
@@ -59,12 +70,15 @@ export default function Product({ cart, setCart }) {
                 data={productData}
                 setMessage={setMessage}
               />
-              {cart !== null 
-              ? <Quantity cart={cart} setCart={setCart} product={productData}/>
-              : ''
-              }
+              {productIsInCart() ? (
+                <Quantity cart={cart} setCart={setCart} product={productData} />
+              ) : (
+                ''
+              )}
             </div>
-            <p className={submitedMessage ? '' : 'invisible'}>{submitedMessage}</p>
+            <p className={submitedMessage ? '' : 'invisible'}>
+              {submitedMessage}
+            </p>
           </div>
         </div>
       )}
