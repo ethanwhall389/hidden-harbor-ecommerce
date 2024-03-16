@@ -29,8 +29,6 @@ export default function AddToCartBttn({
       setCart((prevCart) =>
         prevCart === null ? [newEntry] : [...prevCart, newEntry]
       );
-      setMessage('Item added to cart.');
-      removeMessageTimer();
     } else {
       setMessage('This item is already in your cart.');
       removeMessageTimer();

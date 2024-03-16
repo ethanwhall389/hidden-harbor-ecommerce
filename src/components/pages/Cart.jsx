@@ -1,21 +1,9 @@
 import PropTypes from 'prop-types';
 import CartItem from '../elements/CartItem';
 import Button from '../elements/Button.jsx';
-import { useState, useEffect } from 'react';
+import OrderSummary from '../elements/OrderSummary.jsx';
 
 export default function Cart({ cart, setCart }) {
-  const [subtotal, setSubtotal] = useState(0);
-
-  useEffect(() => {
-    let newTotal = 0;
-    if (cart !== null) {
-      cart.forEach((item) => {
-        newTotal += item.price * item.quantity;
-      });
-      setSubtotal(newTotal.toLocaleString());
-    }
-  }, [cart]);
-
   // function getSubtotal() {
   //   let total = 0;
   //   if (cart === null) {
@@ -38,20 +26,25 @@ export default function Cart({ cart, setCart }) {
       )}
 
       {cart && (
-        <div className="pt-6 pb-6">
-          {cart.map((product, index) => (
-            <CartItem
-              key={index}
-              data={product}
-              cart={cart}
-              setCart={setCart}
-            />
-          ))}
-          <div className="flex justify-between">
-            <p className="text-xl">
-              {cart.length} {cart.length > 1 ? 'items' : 'item'}
-            </p>
-            <h2 className="font-mont text-2xl">Subtotal: ${subtotal}</h2>
+        <div className="pt-6 pb-6 flex gap-4">
+          <div className="flex-grow">
+            {cart.map((product, index) => (
+              <CartItem
+                key={index}
+                data={product}
+                cart={cart}
+                setCart={setCart}
+              />
+            ))}
+            <div className="flex justify-between">
+              <p className="text-xl">
+                {cart.length} {cart.length > 1 ? 'items' : 'item'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-start flex-grow mt-10">
+            <OrderSummary cart={cart} />
           </div>
         </div>
       )}
