@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import Button from './Button';
 
 export default function OrderSummary({ cart }) {
   const [subtotal, setSubtotal] = useState(0);
@@ -23,7 +24,7 @@ export default function OrderSummary({ cart }) {
 
   return (
     <div>
-      <div className="border-2 rounded-lg p-4 text-lg font-mont flex flex-col gap-1">
+      <div className="border-2 rounded-lg p-4 px-6 text-lg font-mont flex flex-col gap-1">
         <h2 className="font-mont text-2xl">Summary</h2>
         <div className="flex gap-4">
           <span>Subtotal:</span>
@@ -41,6 +42,9 @@ export default function OrderSummary({ cart }) {
         <div className="flex gap-4 text-2xl">
           <span>Total:</span>
           <span>${total.toLocaleString()}</span>
+        </div>
+        <div className="mt-3 flex justify-end">
+          <Button text={'Checkout'} link={'/'} />
         </div>
       </div>
     </div>
