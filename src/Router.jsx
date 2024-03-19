@@ -11,10 +11,6 @@ import NotFound from './components/pages/NotFound';
 export default function Router() {
   const [cart, setCart] = useState(null);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   const router = createBrowserRouter([
     {
       path: '/',
