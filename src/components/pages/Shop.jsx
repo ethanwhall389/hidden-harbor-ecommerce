@@ -18,7 +18,7 @@ export default function Shop() {
   return (
     <>
       <div className="p-3 pb-10">
-        <h1 className="text-4xl text-center mt-10 mb-14">
+        <h1 className="text-3xl text-center mt-10 mb-14">
           Shop our finest products
         </h1>
 

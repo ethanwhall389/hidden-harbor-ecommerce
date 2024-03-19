@@ -8,7 +8,7 @@ export default function NavBar({ cart }) {
     <div className="flex justify-center md:justify-between p-6 mb-0 border-b-2 md:pb-4">
       <div className="hidden md:block">
         <Link to={'/'}>
-          <h2 className="text-2xl">Hidden Harbor</h2>
+          <h2 className="text-xl">Hidden Harbor</h2>
         </Link>
       </div>
       <nav>

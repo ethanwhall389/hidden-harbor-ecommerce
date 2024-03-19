@@ -6,7 +6,7 @@ export default function NavigationLink({ text, link }) {
     <NavLink
       to={link}
       className={({ isActive }) =>
-        `hover:text-slate-600 text-xl transition-all duration-75
+        `hover:text-slate-600 text-lg transition-all duration-75
         ${isActive ? 'border-b-2 border-slate-400' : ''}`
       }
     >

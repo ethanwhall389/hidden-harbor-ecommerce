@@ -24,7 +24,7 @@ export default function OrderSummary({ cart }) {
 
   return (
     <>
-      <div className="w-full border-2 rounded-lg p-4 px-6 text-lg font-mont flex flex-col gap-1">
+      <div className="w-full md:w-auto border-2 rounded-lg p-4 px-6 text-lg font-mont flex flex-col gap-1">
         <h2 className="font-mont text-2xl">Summary</h2>
         <div className="flex gap-4">
           <span>Subtotal:</span>
