@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 export default function CategorySelect({ setError, setCategory }) {
@@ -28,8 +29,7 @@ export default function CategorySelect({ setError, setCategory }) {
 
   useEffect(() => {
     getCategories();
-    console.log(categories);
-  }, [categories, getCategories]);
+  }, []);
 
   return (
     <select
@@ -48,3 +48,8 @@ export default function CategorySelect({ setError, setCategory }) {
     </select>
   );
 }
+
+CategorySelect.propTypes = {
+  setError: PropTypes.func,
+  setCategory: PropTypes.funct,
+};
