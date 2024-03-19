@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import { ShoppingBagOutlined } from '@mui/icons-material';
 export default function NavBar({ cart }) {
   return (
-    <div className="flex justify-between mb-4 border-b-2 pb-4">
-      <div>
+    <div className="flex justify-center md:justify-between p-6 mb-0 border-b-2 md:pb-4">
+      <div className="hidden md:block">
         <Link to={'/'}>
           <h2 className="text-2xl">Hidden Harbor</h2>
         </Link>
       </div>
       <nav>
-        <ul className="flex gap-4 items-center">
+        <ul className="flex gap-10 md:gap-4 items-center">
           <li>
             <NavigationLink text={'Home'} link={'/'} />
           </li>

@@ -23,8 +23,8 @@ export default function OrderSummary({ cart }) {
   }, [cart, subtotal, salesTax, shippingCost]);
 
   return (
-    <div>
-      <div className="border-2 rounded-lg p-4 px-6 text-lg font-mont flex flex-col gap-1">
+    <>
+      <div className="w-full border-2 rounded-lg p-4 px-6 text-lg font-mont flex flex-col gap-1">
         <h2 className="font-mont text-2xl">Summary</h2>
         <div className="flex gap-4">
           <span>Subtotal:</span>
@@ -43,11 +43,11 @@ export default function OrderSummary({ cart }) {
           <span>Total:</span>
           <span>${total.toLocaleString()}</span>
         </div>
-        <div className="mt-3 flex justify-end">
+        <div className="mt-3 flex justify-start">
           <Button text={'Checkout'} link={'/'} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

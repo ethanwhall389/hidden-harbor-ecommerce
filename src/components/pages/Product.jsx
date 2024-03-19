@@ -40,21 +40,21 @@ export default function Product({ cart, setCart }) {
       )}
 
       {isLoading && (
-        <div className={'flex flex-grow gap-4 justify-center mb-6'}>
+        <div className={'flex flex-grow gap-4 justify-center mb-6 mt-2'}>
           <CircularProgress />
         </div>
       )}
 
       {productData && (
-        <div className="flex gap-6 justify-center mt-16">
+        <div className="p-3 flex flex-col md:flex-row gap-6 justify-center items-center mt-6 md:mt-16 pb-10">
           <div className="grow w-full m-2">
             <div
               style={{ backgroundImage: `url(${productData.image})` }}
               className="bg-contain bg-no-repeat bg-center w-full h-72"
             ></div>
           </div>
-          <div className="flex flex-col justify-center gap-2">
-            <h1 className="text-4xl">{productData.title}</h1>
+          <div className="flex flex-col justify-center gap-4 md:gap-2">
+            <h1 className="text-3xl md:text-4xl">{productData.title}</h1>
             <div className="flex gap-2">
               <Rating readOnly={true} value={productData.rating.rate} />
               <p>{`(${productData.rating.count})`}</p>
@@ -62,7 +62,7 @@ export default function Product({ cart, setCart }) {
             <h2 className="font-mont text-3xl">${productData.price}</h2>
             <hr></hr>
             <p className="font-mont">{productData.description}</p>
-            <div className="flex gap-4">
+            <div className="flex flex-col justify-center items-center md:justify-start md:flex-row gap-4 ">
               <AddToCartBttn
                 text={'Add To Cart'}
                 cart={cart}

@@ -17,41 +17,43 @@ export default function Shop() {
 
   return (
     <>
-    <div className="pb-10">
-      <h1 className="text-4xl text-center mt-10 mb-14">
-        Shop our finest products
-      </h1>
+      <div className="p-3 pb-10">
+        <h1 className="text-4xl text-center mt-10 mb-14">
+          Shop our finest products
+        </h1>
 
-      {error && (
-        <div className="text-2xl text-center">
-          Error loading products: {error}
+        {error && (
+          <div className="text-2xl text-center">
+            Error loading products: {error}
+          </div>
+        )}
+
+        <div className="m-4 flex justify-center md:justify-end">
+          <CategorySelect setError={setError} setCategory={setCategory} />
         </div>
-      )}
 
-      <div className='m-4 flex justify-end'>
-        <CategorySelect setError={setError} setCategory={setCategory}/>
-      </div>
+        {isLoading && (
+          <div className={'flex flex-grow gap-4 justify-center mb-6'}>
+            <CircularProgress />
+          </div>
+        )}
 
-      {isLoading && 
-      <div className={'flex flex-grow gap-4 justify-center mb-6'}>
-        <CircularProgress />
-      </div>}
-      
-      <div className="grid grid-cols-3 gap-10 justify-items-center">
-        {shopData && !error &&
-          shopData.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              rating={product.rating.rate}
-              reviewNum={product.rating.count}
-            />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center">
+          {shopData &&
+            !error &&
+            shopData.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                rating={product.rating.rate}
+                reviewNum={product.rating.count}
+              />
+            ))}
+        </div>
       </div>
-    </div>
     </>
   );
 }

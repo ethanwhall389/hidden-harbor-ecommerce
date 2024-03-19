@@ -26,7 +26,7 @@ export default function Cart({ cart, setCart }) {
       )}
 
       {cart && (
-        <div className="pt-6 pb-6 flex gap-4">
+        <div className="p-3 pt-6 pb-10 flex flex-col md:flex-row gap-4">
           <div className="flex-grow">
             {cart.map((product, index) => (
               <CartItem
