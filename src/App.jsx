@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 function App({ cart }) {
   return (
     <>
-      <div className="flex flex-col flex-grow max-w-5xl p-0">
+      <div className="flex flex-col flex-grow max-w-[2000px] mx-auto p-0">
         <NavBar cart={cart} />
 
         <Outlet />

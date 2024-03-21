@@ -16,8 +16,8 @@ export default function Shop() {
   }, [category]);
 
   return (
-    <>
-      <div className="p-3 pb-10">
+    <div className='flex justify-center'>
+      <div className="grow p-3 pb-10 max-w-[1300px]">
         <h1 className="text-3xl text-center mt-10 mb-14">
           Shop our finest products
         </h1>
@@ -54,6 +54,6 @@ export default function Shop() {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

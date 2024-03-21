@@ -32,7 +32,7 @@ export default function Product({ cart, setCart }) {
   }, [productId]);
 
   return (
-    <>
+    <div className='max-w-6xl mx-auto'>
       {error && (
         <div className="text-2xl text-center">
           Error loading products: {error}
@@ -82,7 +82,7 @@ export default function Product({ cart, setCart }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
