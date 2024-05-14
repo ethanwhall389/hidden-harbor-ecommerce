@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Quantity from '../elements/Quantity.jsx';
+import Quantity from '../../global-components/UI/Quantity.jsx';
 import RemoveItemBttn from './RemoveItemBttn.jsx';
 
 export default function CartItem({ data, cart, setCart }) {

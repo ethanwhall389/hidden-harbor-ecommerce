@@ -51,5 +51,5 @@ export default function CategorySelect({ setError, setCategory }) {
 
 CategorySelect.propTypes = {
   setError: PropTypes.func,
-  setCategory: PropTypes.funct,
+  setCategory: PropTypes.func,
 };

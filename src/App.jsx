@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import NavBar from './components/elements/NavBar';
+import NavBar from './global-components/nav-bar/NavBar';
 import './index.css';
 import { Outlet } from 'react-router-dom';
 

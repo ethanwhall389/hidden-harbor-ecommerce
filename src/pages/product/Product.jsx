@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchData } from '../../../utils/FetchData';
+import { fetchData } from '../../utils/FetchData';
 import { CircularProgress } from '@mui/material';
 import { Rating } from '@mui/material';
-import AddToCartBttn from '../../elements/AddToCartBttn';
-import Quantity from '../../elements/Quantity';
+import AddToCartBttn from './AddToCartBttn';
+import Quantity from '../../global-components/UI/Quantity';
 
 export default function Product({ cart, setCart }) {
   const { productId } = useParams();

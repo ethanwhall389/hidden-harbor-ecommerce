@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import Button from './Button';
+import Button from '../../global-components/UI/Button';
 
 export default function OrderSummary({ cart }) {
   const [subtotal, setSubtotal] = useState(0);

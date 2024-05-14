@@ -1,8 +1,8 @@
-import ProductCard from '../../elements/ProductCard';
-import { fetchData } from '../../../utils/FetchData';
+import ProductCard from './ProductCard';
+import { fetchData } from '../../utils/FetchData';
 import { useState, useEffect } from 'react';
 import { CircularProgress } from '@mui/material';
-import CategorySelect from '../../elements/CategorySelect';
+import CategorySelect from './CategorySelect';
 
 export default function Shop() {
   const [shopData, setData] = useState(null);

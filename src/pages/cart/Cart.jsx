@@ -1,20 +1,9 @@
 import PropTypes from 'prop-types';
-import CartItem from '../../elements/CartItem.jsx';
-import Button from '../../elements/Button.jsx';
-import OrderSummary from '../../elements/OrderSummary.jsx';
+import CartItem from './CartItem.jsx';
+import Button from '../../global-components/UI/Button.jsx';
+import OrderSummary from './OrderSummary.jsx';
 
 export default function Cart({ cart, setCart }) {
-  // function getSubtotal() {
-  //   let total = 0;
-  //   if (cart === null) {
-  //     total = 0;
-  //   } else {
-  //     cart.forEach((item) => {
-  //       total += item.price * item.quantity;
-  //     });
-  //   }
-  //   return total.toLocaleString();
-  // }
 
   return (
     <div className='flex justify-center h-full'>
