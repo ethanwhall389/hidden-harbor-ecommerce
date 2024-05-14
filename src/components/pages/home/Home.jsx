@@ -1,8 +1,8 @@
-import Button from '../elements/Button';
+import Button from '../../elements/Button';
 
 export default function Home() {
   return (
-    <div className="p-3 h-full flex flex-col gap-6 items-center justify-center bg-[url('../public/assets/home-bg.jpg')] bg-cover bg-center">
+    <div className="p-3 h-full flex flex-col gap-6 items-center justify-center bg-[url('/assets/home-bg.jpg')] bg-cover bg-center">
       <h1 className="text-5xl md:text-6xl text-center text-slate-50 drop-shadow-lg">
         Hidden Harbor
       </h1>

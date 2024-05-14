@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import CartItem from '../elements/CartItem';
-import Button from '../elements/Button.jsx';
-import OrderSummary from '../elements/OrderSummary.jsx';
+import CartItem from '../../elements/CartItem.jsx';
+import Button from '../../elements/Button.jsx';
+import OrderSummary from '../../elements/OrderSummary.jsx';
 
 export default function Cart({ cart, setCart }) {
   // function getSubtotal() {
